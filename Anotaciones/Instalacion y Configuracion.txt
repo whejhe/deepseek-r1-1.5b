@@ -1,11 +1,13 @@
 1 - Instalar Ollama
 https://ollama.com/download
 
-2 - Añadir modelo desde cmd:
+2 - Añadir modelos desde cmd:
 ollama run deepseek-r1:1.5b
+ollama run deepseek-r1:7b
 
 3 - Para poder ejecutarlo en python:
 ollama pull deepseek-r1:1.5b
+ollama pull deepseek-r1:7b
 
 4 - Añadir extension de Python a visual
 
@@ -26,6 +28,10 @@ pip install ollama
 Visualizar en web
 9 - Instalar dependecias:
 pip install streamlit
+vamos a cambiar a:
+pip install flask
 
 10 - Ejecutar streamlit (cmd .venv)
 streamlit run app.py
+o
+python versionConFlask.py
