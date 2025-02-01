@@ -1,0 +1,31 @@
+1 - Instalar Ollama
+https://ollama.com/download
+
+2 - Añadir modelo desde cmd:
+ollama run deepseek-r1:1.5b
+
+3 - Para poder ejecutarlo en python:
+ollama pull deepseek-r1:1.5b
+
+4 - Añadir extension de Python a visual
+
+5 - Crear un entorno virtual desde:
+View - Command Palette - Phython Create envirotment
+
+6 - Puede que la ejecucion de Script este desabilitada:
+Desde powershell (admin) 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+7 - Activar entorno Virtual:
+.venv/Scripts/activate
+
+8 - Instalar libreria en el entorno virtual: 
+pip install ollama
+
+-------------------------------------------------------
+Visualizar en web
+9 - Instalar dependecias:
+pip install streamlit
+
+10 - Ejecutar streamlit (cmd .venv)
+streamlit run app.py
