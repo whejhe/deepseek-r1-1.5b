@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s;
+    overflow-x: hidden;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --sidebar-bg: #f4f4f4;
+    --sidebar-text: black;
+}
+
+body.dark-mode {
+    --bg-color: black;
+    --text-color: white;
+    --sidebar-bg: #333;
+    --sidebar-text: white;
+}
+
+/* Estilo base para el contenedor */
+.container {
+    max-width: calc(100% - 40px); /* Ajusta el ancho al 100% menos un margen */
+    margin: 50px 20px; /* Añade margen izquierdo y derecho */
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: margin-left 0.3s ease; /* Transición suave al cambiar el margen */
+}
+
+/* Cuando el menú lateral está visible */
+.sidebar:not(.hidden) + .container {
+    max-width: calc(100% - 240px); /* Reducir el ancho para dejar espacio al menú */
+    margin-left: 220px; /* Mover el contenedor hacia la derecha */
+}
+
+/* Cuando el menú lateral está oculto */
+.sidebar.hidden + .container {
+    margin-left: 20px; /* Restaurar el margen izquierdo */
+}
+
+h1 { text-align: center; }
+
+select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.message { margin-bottom: 20px; padding: 10px; border-radius: 5px; }
+.user { background-color: var(--user-bg); text-align: right; }
+.assistant { background-color: var(--assistant-bg); text-align: left; }
+
+.sidebar-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid var(--sidebar-text);
+}
+
+.toggle-sidebar {
+    position: absolute;
+    top: 0;
+    right: -20px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--sidebar-text);
+    transition: transform 0.3s ease;
+    width: fit-content;
+}
+
+/* Rotar la flecha cuando el menú está oculto */
+#sidebar.hidden .toggle-sidebar {
+    transform: rotate(180deg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.sidebar.hidden {
+    left: -200px; /* Ocultar el menú lateral */
+}
+
+
+/* Para pantallas pequeñas (menos de 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%; /* Ocupa todo el ancho */
+        margin: 20px; /* Reduce los márgenes */
+    }
+
+    /* Ocultar el menú lateral por defecto */
+    .sidebar {
+        left: -200px; /* Ocultar el menú lateral */
+    }
+
+    /* Mostrar el menú lateral cuando se haga clic */
+    .sidebar:not(.hidden) {
+        left: 0; /* Mostrar el menú lateral */
+    }
+}

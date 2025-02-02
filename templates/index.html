@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DeepSeek Chat</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">
+                &#9723; <!-- Ícono de ventana -->
+            </button>
+            <h2>Conversaciones</h2>
+        </div>
+        <select id="conversation-select" onchange="switchConversation()">
+            {% for name in conversations %}
+                <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+        <button onclick="newConversation()">Nueva Conversación</button>
+        <button onclick="toggleDarkMode()">Toggle Modo Oscuro</button>
+    </div>
+    <div class="container">
+        <h1>Chat con DeepSeek</h1>
+        <select id="language" onchange="updateLanguage()">
+            {% for lang in languages %}
+                <option value="{{ loop.index0 }}">{{ lang }}</option>
+            {% endfor %}
+        </select>
+        <textarea id="user-input" placeholder="Escribe tu pregunta aquí..."></textarea>
+        <button onclick="sendMessage()">Enviar</button>
+        <div id="chat-history"></div>
+        <div class="loading" id="loading">Cargando...</div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

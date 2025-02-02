@@ -30,6 +30,7 @@ Visualizar en web
 pip install streamlit
 vamos a cambiar a:
 pip install flask
+pip install jinja2
 
 10 - Ejecutar streamlit (cmd .venv)
 streamlit run app.py
