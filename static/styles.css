@@ -24,15 +24,15 @@ body.dark-mode {
 
 /* Estilo base para el contenedor */
 .container {
-    max-width: calc(100% - 40px); /* Ajusta el ancho al 100% menos un margen */
-    margin: 50px 20px; /* Añade margen izquierdo y derecho */
-    padding: 50px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    min-height: 100vh;
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: margin-left 0.3s ease; /* Transición suave al cambiar el margen */
+    transition: margin-left 0.3s ease;
 }
 
 /* Cuando el menú lateral está visible */
@@ -43,7 +43,7 @@ body.dark-mode {
 
 /* Cuando el menú lateral está oculto */
 .sidebar.hidden + .container {
-    margin-left: 20px; /* Restaurar el margen izquierdo */
+    margin-left: 20px;
 }
 
 h1 { text-align: center; }
@@ -63,6 +63,14 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.enviar {
+    width: fit-content;
+    margin: auto;
+    display: block;
+    padding: 5px 30px;
+    font-size: larger;
 }
 
 
@@ -128,20 +136,38 @@ button {
 }
 
 
-/* Para pantallas pequeñas (menos de 768px) */
+/* Para pantallas pequeñas */
 @media (max-width: 768px) {
     .container {
-        max-width: 100%; /* Ocupa todo el ancho */
-        margin: 20px; /* Reduce los márgenes */
+        max-width: 100%;
+        margin: 20px;
     }
 
-    /* Ocultar el menú lateral por defecto */
+    /* Ocultar el menú lateral */
     .sidebar {
-        left: -200px; /* Ocultar el menú lateral */
+        left: -200px;
     }
 
-    /* Mostrar el menú lateral cuando se haga clic */
+    /* Mostrar el menú lateral */
     .sidebar:not(.hidden) {
-        left: 0; /* Mostrar el menú lateral */
+        left: 0;
     }
+}
+
+
+.code-block {
+    background-color: #918d8d;
+    color: rgb(12, 33, 128);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.code-block pre code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
 }

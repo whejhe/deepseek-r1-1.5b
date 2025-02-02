@@ -1,0 +1,12 @@
+1 - Añadir archivo config.yaml
+model: deepseek-r1:7b
+dataset: path/to/your/dataset.jsonl
+batch_size: 2
+epochs: 3
+learning_rate: 0.0001
+
+2 - Usa el siguiente comando para iniciar el proceso de fine-tuning
+ollama train --config config.yaml
+
+3 - Listar modelos
+ollama list

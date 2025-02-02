@@ -50,7 +50,14 @@ async function sendMessage() {
     });
 
     const data = await response.json();
-    chatHistory.innerHTML += `<div class="message assistant">Modelo: ${data.response}</div>`;
+    let assistantMessage = data.response;
+
+    // Renderizar bloques de código
+    assistantMessage = assistantMessage.replace(/<pre><code>([\s\S]*?)<\/code><\/pre>/g, (match) => {
+        return `<div class="code-block">${match}</div>`;
+    });
+
+    chatHistory.innerHTML += `<div class="message assistant">Modelo: ${assistantMessage}</div>`;
     document.getElementById('user-input').value = '';
     document.getElementById('loading').style.display = 'none';
 
