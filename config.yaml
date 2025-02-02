@@ -1,5 +1,5 @@
 model: deepseek-r1:7b
-dataset: path/to/your/dataset.jsonl
+dataset: dataset/android_code.jsonl
 batch_size: 2
 epochs: 3
 learning_rate: 0.0001
